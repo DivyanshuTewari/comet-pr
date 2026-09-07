@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP Creator PR Portal | Instagram Creator Relations</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti for Celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Instagram Navigation Bar -->
+  <header class="ig-header">
+    <div class="header-container">
+      <div class="ig-brand">
+        <div class="ig-logo-icon">
+          <!-- Instagram SVG Logo -->
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </div>
+        <span class="ig-brand-text">Instagram</span>
+        <span class="brand-divider">/</span>
+        <span class="ig-portal-tag">Creator Relations</span>
+      </div>
+      <div class="header-badge">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="#0095f6">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"></path>
+        </svg>
+        VIP Creator Lounge
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- ============================================== -->
+    <!-- SECTION 1: DM CREDENTIALS AUTHENTICATION GATE -->
+    <!-- ============================================== -->
+    <section id="authSection" class="portal-card auth-card">
+      <div class="card-gradient-border"></div>
+
+      <!-- Story Ring Icon with SVG Lock -->
+      <div class="story-ring-container">
+        <div class="story-gradient-ring">
+          <div class="story-avatar-inner">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-header">
+        <h1 class="card-title">Identity Verification</h1>
+        <p class="card-subtitle">
+          Please enter the credentials sent to your <strong>Instagram Direct Message (DM)</strong> to access your VIP PR intake form.
+        </p>
+      </div>
+
+      <form id="authForm" class="form-container" onsubmit="handleAuthSubmit(event)">
+        <div class="form-group">
+          <label for="dmUsername">Instagram Handle / Username</label>
+          <div class="input-with-icon">
+            <span class="input-icon-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              id="dmUsername" 
+              placeholder="your_handle" 
+              required 
+              autocomplete="username" 
+              autocapitalize="none"
+              spellcheck="false"
+            />
+          </div>
+          <span class="field-hint">The username associated with this invitation.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="dmPasscode">Direct Message Passcode</label>
+          <div class="input-with-icon">
+            <span class="input-icon-left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7.5" cy="15.5" r="5.5"></circle>
+                <path d="m21 2-9.6 9.6"></path>
+                <path d="m15.5 7.5 3 3L22 7l-3-3"></path>
+              </svg>
+            </span>
+            <input 
+              type="password" 
+              id="dmPasscode" 
+              placeholder="Enter passcode from DM" 
+              required 
+              autocomplete="current-password"
+            />
+            <button type="button" class="btn-toggle-pw" id="togglePwBtn" onclick="togglePasswordVisibility('dmPasscode')" title="Toggle Visibility">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <span class="field-hint">Enter the security code received in your chat.</span>
+        </div>
+
+        <button type="submit" id="authBtn" class="ig-btn primary-gradient-btn">
+          <span class="btn-text">Verify & Continue to PR Form</span>
+        </button>
+
+        <div class="dm-help-banner">
+          <div style="flex-shrink: 0; margin-top: 1px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <p>
+            Have questions regarding your passcode? Simply reply to our Instagram Direct Message and our team will assist you.
+          </p>
+        </div>
+      </form>
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- SECTION 2: INFLUENCER PR DETAILS INTAKE FORM  -->
+    <!-- ============================================== -->
+    <section id="formSection" class="portal-card form-card hidden">
+      <div class="card-gradient-border"></div>
+
+      <!-- Unlocked VIP Header -->
+      <div class="unlocked-banner">
+        <div class="unlocked-left">
+          <div class="mini-story-ring">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="IG" width="20">
+          </div>
+          <div>
+            <div class="creator-tag">
+              <span id="verifiedUsername">@creator</span>
+              <span class="verified-pill">Access Verified</span>
+            </div>
+            <p class="unlocked-sub">Exclusive VIP PR Gifting Program</p>
+          </div>
+        </div>
+        <button type="button" class="btn-lock" onclick="lockPortal()" title="Lock session">
+          Sign out
+        </button>
+      </div>
+
+      <div class="form-header">
+        <h2 class="section-heading">PR Delivery & Specifications Form</h2>
+        <p class="section-sub">
+          Please provide your designated delivery address and package preferences below.
+        </p>
+      </div>
+
+      <form id="prDetailsForm" onsubmit="handleDetailsSubmit(event)">
+        
+        <!-- STEP 1: Basic & Contact Info -->
+        <fieldset class="form-section-fieldset">
+          <legend class="fieldset-legend">
+            <span class="legend-num">1</span>
+            Creator Identity & Contact
+          </legend>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="fullName">Full Name (for courier label) *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Jessica Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="preferredName">Preferred Name / Alias</label>
+              <input type="text" id="preferredName" name="preferredName" placeholder="e.g. Jess" />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="phone">Contact Number (for delivery notifications) *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 012-3456" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Contact Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="jessica@creator.com" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- STEP 2: Shipping Details -->
+        <fieldset class="form-section-fieldset">
+          <legend class="fieldset-legend">
+            <span class="legend-num">2</span>
+            Delivery Destination
+          </legend>
+
+          <div class="form-group">
+            <label for="streetAddress">Street Address *</label>
+            <input type="text" id="streetAddress" name="streetAddress" placeholder="123 Fashion Blvd" required />
+          </div>
+
+          <div class="form-group">
+            <label for="apartment">Apartment, Suite, Unit, or Studio (Optional)</label>
+            <input type="text" id="apartment" name="apartment" placeholder="Suite 4B / Studio 12" />
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input type="text" id="city" name="city" placeholder="Los Angeles" required />
+            </div>
+            <div class="form-group">
+              <label for="state">State / Province / Region *</label>
+              <input type="text" id="state" name="state" placeholder="CA" required />
+            </div>
+            <div class="form-group">
+              <label for="zipCode">Postal / ZIP Code *</label>
+              <input type="text" id="zipCode" name="zipCode" placeholder="90210" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country *</label>
+            <input type="text" id="country" name="country" placeholder="United States" required />
+          </div>
+
+          <div class="form-group">
+            <label for="deliveryInstructions">Delivery Instructions for Courier (Optional)</label>
+            <textarea id="deliveryInstructions" name="deliveryInstructions" rows="2" placeholder="e.g. Leave with building concierge, call upon arrival"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- STEP 3: Personalization & Sizing Preferences -->
+        <fieldset class="form-section-fieldset">
+          <legend class="fieldset-legend">
+            <span class="legend-num">3</span>
+            Package Specifications & Sizing
+          </legend>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="clothingSize">Apparel Size (if applicable)</label>
+              <select id="clothingSize" name="clothingSize">
+                <option value="Not Specified">Select size (Optional)</option>
+                <option value="XS (US 0-2)">XS (US 0-2)</option>
+                <option value="S (US 4-6)">S (US 4-6)</option>
+                <option value="M (US 8-10)">M (US 8-10)</option>
+                <option value="L (US 12-14)">L (US 12-14)</option>
+                <option value="XL (US 16-18)">XL (US 16-18)</option>
+                <option value="XXL (US 20+)">XXL (US 20+)</option>
+                <option value="Oversized Fit Preferred">Oversized Fit Preferred</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="shoeSize">Shoe Size (if applicable)</label>
+              <input type="text" id="shoeSize" name="shoeSize" placeholder="e.g. US 7 / EU 38" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="aesthetic">Color Palette / Aesthetic Preference</label>
+            <input type="text" id="aesthetic" name="aesthetic" placeholder="e.g. Neutrals, Earth tones, Monochromatic, Vibrant" />
+          </div>
+
+          <div class="form-group">
+            <label for="allergies">Allergies / Material Sensitivities</label>
+            <textarea id="allergies" name="allergies" rows="2" placeholder="e.g. Fragrance-free, sensitive skin, vegan, no wool, etc."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="unboxingTimeframe">Estimated Review / Feature Timeline</label>
+            <select id="unboxingTimeframe" name="unboxingTimeframe">
+              <option value="Within 48 hours of receipt">Within 48 hours of receipt</option>
+              <option value="Within 1 week of receipt">Within 1 week of receipt</option>
+              <option value="For upcoming content schedule">For upcoming content schedule</option>
+              <option value="Personal gifting only (no publication guarantee)">Personal gifting only (no publication guarantee)</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- Consent Checkbox -->
+        <div class="consent-container">
+          <label class="checkbox-label">
+            <input type="checkbox" id="consentCheck" required checked>
+            <span>I confirm that the submitted delivery details are accurate for courier dispatch.</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-action-area">
+          <button type="submit" id="submitDetailsBtn" class="ig-btn primary-gradient-btn full-btn">
+            <span class="btn-text">Submit Delivery Details</span>
+          </button>
+          <p class="submit-footnote">All information submitted is kept strictly confidential.</p>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- SECTION 3: SUCCESS & CONFIRMATION SCREEN      -->
+    <!-- ============================================== -->
+    <section id="successSection" class="portal-card success-card hidden">
+      <div class="card-gradient-border"></div>
+
+      <!-- SVG Checkmark Inside Story Ring -->
+      <div class="success-icon-wrapper">
+        <div class="story-gradient-ring large-ring">
+          <div class="story-avatar-inner">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="card-title">Submission Confirmed</h1>
+      <p class="card-subtitle">
+        Your PR delivery specifications have been received. Our fulfillment team is preparing your package for courier dispatch.
+      </p>
+
+      <div class="tracking-preview-card">
+        <div class="tracking-header">
+          <span class="tracking-label">Package Status</span>
+          <span class="tracking-badge">Queued for Fulfillment</span>
+        </div>
+        <div class="tracking-details">
+          <div class="tracking-row">
+            <span>Recipient:</span>
+            <strong id="confirmRecipient">Influencer</strong>
+          </div>
+          <div class="tracking-row">
+            <span>Destination:</span>
+            <strong id="confirmDestination">Delivery Destination</strong>
+          </div>
+          <div class="tracking-row">
+            <span>Estimated Dispatch:</span>
+            <strong>24 - 48 Hours</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="success-actions">
+        <button type="button" class="ig-btn secondary-btn" onclick="downloadSummary()">
+          Download Confirmation Receipt (.txt)
+        </button>
+        <button type="button" class="ig-btn primary-gradient-btn" onclick="resetPortal()">
+          Done
+        </button>
+      </div>
+
+      <p class="thank-you-footer">
+        Instagram VIP Creator Relations • Confidential PR Management
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="portal-footer">
+    <p>© 2026 Instagram Creator Relations Desk • Confidential PR Portal</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

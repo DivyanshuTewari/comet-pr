@@ -1,0 +1,647 @@
+/* ==========================================================================
+   Instagram Professional Light Theme Stylesheet
+   Brand Palette:
+   Purple (#833AB4), Pink (#C13584), Red-Pink (#E1306C), Orange (#F77737), Gold (#FCAF45)
+   ========================================================================== */
+
+:root {
+  --bg-page: #fafafa;
+  --card-bg: #ffffff;
+  --card-elevated: #fcfcfc;
+  --border-subtle: #dbdbdb;
+  --border-light: #efefef;
+  --border-focus: #0095f6;
+  
+  --text-primary: #262626;
+  --text-secondary: #737373;
+  --text-muted: #8e8e8e;
+  
+  /* Official Instagram Brand Gradient */
+  --ig-purple: #833ab4;
+  --ig-pink: #c13584;
+  --ig-red-pink: #e1306c;
+  --ig-orange: #f77737;
+  --ig-gold: #fcaf45;
+  --ig-blue: #0095f6;
+  
+  --ig-gradient: linear-gradient(45deg, #833ab4 0%, #c13584 25%, #e1306c 50%, #f77737 75%, #fcaf45 100%);
+  --ig-gradient-horizontal: linear-gradient(90deg, #833ab4 0%, #c13584 25%, #e1306c 50%, #f77737 75%, #fcaf45 100%);
+  --ig-gradient-soft: linear-gradient(135deg, rgba(131, 58, 180, 0.08) 0%, rgba(225, 48, 108, 0.08) 50%, rgba(252, 175, 69, 0.08) 100%);
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+  
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-btn: 0 6px 16px rgba(225, 48, 108, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.ig-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ig-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ig-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--ig-gradient);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.ig-brand-text {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #262626;
+}
+
+.brand-divider {
+  color: var(--border-subtle);
+  font-weight: 300;
+}
+
+.ig-portal-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.header-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f0f7ff;
+  border: 1px solid #cce5ff;
+  color: var(--ig-blue);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* Main Layout */
+.main-wrapper {
+  flex: 1;
+  max-width: 660px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 18px;
+}
+
+/* Card Shell */
+.portal-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-gradient-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--ig-gradient-horizontal);
+}
+
+/* Story Ring */
+.story-ring-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.story-gradient-ring {
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--ig-gradient);
+  display: inline-block;
+  box-shadow: 0 4px 16px rgba(193, 53, 132, 0.2);
+}
+
+.large-ring {
+  padding: 4px;
+}
+
+.story-avatar-inner {
+  background-color: #ffffff;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f0f0f0;
+}
+
+.large-ring .story-avatar-inner {
+  width: 82px;
+  height: 82px;
+}
+
+/* Headings */
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* Forms */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #383838;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.input-with-icon input {
+  padding-left: 40px !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  background-color: #fbfbfb;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a0a0a0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: #ffffff;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(0, 149, 246, 0.15);
+}
+
+.btn-toggle-pw {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.btn-toggle-pw:hover {
+  color: var(--text-primary);
+}
+
+.field-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Grids */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* Buttons */
+.ig-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.3px;
+  text-decoration: none;
+}
+
+.primary-gradient-btn {
+  background: var(--ig-gradient-horizontal);
+  color: #ffffff;
+  box-shadow: var(--shadow-btn);
+}
+
+.primary-gradient-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(225, 48, 108, 0.35);
+}
+
+.primary-gradient-btn:active {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.secondary-btn:hover {
+  background-color: #f8f8f8;
+  border-color: #b8b8b8;
+}
+
+.full-btn {
+  width: 100%;
+}
+
+.btn-lock {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-lock:hover {
+  background-color: #f5f5f5;
+  color: var(--text-primary);
+}
+
+/* DM Help Banner */
+.dm-help-banner {
+  margin-top: 14px;
+  background-color: #fbfbfb;
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--ig-red-pink);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dm-help-banner p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* Fieldset Section */
+.form-section-fieldset {
+  border: 1px solid var(--border-subtle);
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+.fieldset-legend {
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ig-gradient);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Unlocked Banner */
+.unlocked-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--ig-gradient-soft);
+  border: 1px solid rgba(225, 48, 108, 0.2);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 26px;
+}
+
+.unlocked-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mini-story-ring {
+  padding: 2px;
+  border-radius: 50%;
+  background: var(--ig-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creator-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.creator-tag span:first-child {
+  font-weight: 700;
+  font-size: 15px;
+  color: #262626;
+}
+
+.verified-pill {
+  background-color: #f0f7ff;
+  color: var(--ig-blue);
+  border: 1px solid #cce5ff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.unlocked-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.section-heading {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* Checkbox */
+.consent-container {
+  margin: 18px 0 24px 0;
+  padding: 12px 14px;
+  background-color: #fbfbfb;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: var(--ig-red-pink);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.submit-footnote {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Success Card */
+.success-card {
+  text-align: center;
+}
+
+.success-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.tracking-preview-card {
+  background-color: #fafafa;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 26px 0;
+  text-align: left;
+}
+
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tracking-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.tracking-badge {
+  background-color: #e6f9f0;
+  color: #00875a;
+  border: 1px solid #b3f0d5;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.tracking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tracking-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.tracking-row span {
+  color: var(--text-secondary);
+}
+
+.tracking-row strong {
+  color: var(--text-primary);
+}
+
+.success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.thank-you-footer {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.portal-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  background-color: #ffffff;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .portal-card {
+    padding: 28px 18px;
+  }
+  
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+}
